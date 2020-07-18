@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<!--
+Author: EdgarGarcia
+Author URL: http://EdgarGarcia.ca
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1" />
+-->
+
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/font-awesome.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+	
+<html lang="En">
+<link rel="icon" type="image/x-icon" href="{% static 'images/favicon1.png' %}" />
+<head>
+    <title>Sepriovital</title>
+    <!-- Meta tag Keywords -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8" />
+    <meta name="keywords" content="Botas, Botas de seguridad, Seguridad, Industria, Seguridad Industrial, Zapatos escolares, Uniformes, Construccion, Sepriovital, Obreros, Botas policiales, Botas Militares, Botas industriales, " />
+    <script>
+        addEventListener("load", function() {
+            setTimeout(hideURLbar, 0);
+        }, false);
+
+        function hideURLbar() {
+            window.scrollTo(0, 1);
+        }
+    </script>
+    <!-- //Meta tag Keywords -->
+
+   <!-- Custom-Files -->
+   <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+   <!-- Bootstrap-Core-CSS -->
+   <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css" media="all" />
+   <!-- Style-CSS -->
+   <!-- font-awesome-icons -->
+   <link href="{% static 'css/font-awesome.css' %}" rel="stylesheet">
+   <!-- //font-awesome-icons -->
+   <!-- /Fonts -->
+    <link href="//fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:200,200i,300,300i,400,400i,600,600i,700,700i,900" rel="stylesheet">
+    <!-- //Fonts -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/font-awesome.css' %}"/>
+    
+<title>Whatsapp-floating-button</title>
+  
+  
+  
+<link rel="stylesheet" href="{% static 'css/whatsapp.css' %}">
+
+
+
+<script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+<script>
+var current = 0;
+var imagenes = new Array();
+ 
+$(document).ready(function() {
+    var numImages = 6;
+    if (numImages <= 3) {
+        $('.right-arrow').css('display', 'none');
+        $('.left-arrow').css('display', 'none');
+    }
+ 
+    $('.left-arrow').on('click',function() {
+        if (current > 0) {
+            current = current - 1;
+        } else {
+            current = numImages - 3;
+        }
+ 
+        $(".carrusel").animate({"left": -($('#product_'+current).position().left)}, 600);
+ 
+        return false;
+    });
+ 
+    $('.left-arrow').on('hover', function() {
+        $(this).css('opacity','0.5');
+    }, function() {
+        $(this).css('opacity','1');
+    });
+ 
+    $('.right-arrow').on('hover', function() {
+        $(this).css('opacity','0.5');
+    }, function() {
+        $(this).css('opacity','1');
+    });
+ 
+    $('.right-arrow').on('click', function() {
+        if (numImages > current + 3) {
+            current = current+1;
+        } else {
+            current = 0;
+        }
+ 
+        $(".carrusel").animate({"left": -($('#product_'+current).position().left)}, 600);
+ 
+        return false;
+    }); 
+ });
+</script>
+</head>
+
+<body>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <a href="https://api.whatsapp.com/send?phone=584125580408&text=Hola%21%20Quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20sepriovital%20." class="float" target="_blank">
+    <i class="fa fa-whatsapp my-float"></i>
+    </a>
+    <!-- mian-content -->
+    <div class="main-banner" id="home">
+        <!-- header -->
+        <header class="header">
+            <div class="container-fluid px-lg-5">
+                <!-- nav -->
+                <nav class="py-4">
+                    <div id="logo">
+                      <h1> <a href="{% url 'index' %}">SeprioVital</a></h1>
+                    </div>
+
+                    <label for="drop" class="toggle">Menu</label>
+                    <input type="checkbox" id="drop" />
+                    <ul class="menu mt-2">
+                      <li class="active"><a href="{% url 'index' %}">Principal</a></li>
+                      <li><a href="{% url 'about' %}">Conocenos</a></li>
+                      <li><a href="{% url 'store' %}">Tienda</a></li>
+                        
+                        <li><a href="{% url 'contact' %}">Contactos</a></li>
+
+                        <li>
+                        <div class="form-inline my-2 my-lg-0">
+                                  
+                                    
+                                   <a href="{% url 'cart' %}">
+                                    <img  id="cart-icon" src="{% static 'images/cart.png' %}">
+                                   </a>
+                                 <p id="cart-total">{{cartItems}}</p>
+                           
+                        </div>
+                        </li>  
+                    </ul>
+                </nav>
+
+                <div class="container">
+                    <br>
+                    {% block content %}
+    
+    
+                     {% endblock content %}
+                </div>
+                <!-- //nav -->
+            </div>
+        </header>
+        <!-- //header -->
+        <!--/banner-->
+        <div class="banner-info">
+            <p>Cuando la seguridad es vital</p>
+            <h3 class="mb-4">botas de seguridad</h3>
+            <div class="ban-buttons">
+			    <a href="{% url 'store' %}" class="btn">catalogos</a>
+			    <a href="{% url 'about' %}" class="btn active">Saber mas</a>
+		    </div>
+        </div>
+        <!--// banner-inner -->
+		
+	
+    </div>
+    <!--//main-content-->
+    <!--/ab -->
+    <section class="about py-md-5 py-5">
+        <div class="container-fluid">
+            <div class="feature-grids row px-3">
+                <div class="col-lg-3 gd-bottom">
+                    <div class="bottom-gd row">
+                        <div class="icon-gd col-md-3 text-center"><span class="fa fa-truck" aria-hidden="true"></span></div>
+                        <div class="icon-gd-info col-md-9">
+                          <h3 class="mb-2">Envios Gratuitos</h3>
+                          <p>Sobre pedidos mayores a 100 unidades.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 gd-bottom">
+                    <div class="bottom-gd row bottom-gd2-active">
+                        <div class="icon-gd col-md-3 text-center"><span class="fa fa-bullhorn" aria-hidden="true"></span></div>
+                        <div class="icon-gd-info col-md-9">
+                          <h3 class="mb-2">Somos fabricantes</h3>
+                          <p>Productos de la mas alta calidad.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 gd-bottom">
+                    <div class="bottom-gd row">
+                        <div class="icon-gd col-md-3 text-center"> <span class="fa fa-gift" aria-hidden="true"></span></div>
+
+                        <div class="icon-gd-info col-md-9">
+                          <h3 class="mb-2">Modelo de obsequio</h3>
+                          <p>Con la compra de 100 unidades.</p>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-lg-3 gd-bottom">
+                    <div class="bottom-gd row">
+                        <div class="icon-gd col-md-3 text-center"> <span class="fa fa-usd" aria-hidden="true"></span></div>
+                        <div class="icon-gd-info col-md-9">
+                          <h3 class="mb-2">Atencion inmediata</h3>
+                          <p>Comunicacion</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- //ab -->
+    <!--/ab -->
+    
+    
+    <section class="about py-5">
+        <div class="<strong>container pb-lg</strong>-3">
+            <h3 class="tittle text-center">Los mas vendidos</h3>
+            <div class="row">
+                
+                <div class="col-md-4 product-men my-lg-4">
+                    <div class="product-shoe-info shoe text-center">
+                        <div class="men-thumb-item">
+                            <img src="{% static 'images/s9.png' %}">
+                            <!--<span class="product-new-top">Mas vendido</span>!-->
+                        </div>
+                        <div class="item-info-product">
+                            <h4>
+                                <a href="store">Zapatos Escolares </a>
+                            </h4>
+
+                            <div class="product_price">
+                                <div class="grid-price">
+                                    <span class="money">$25.00</span>
+                                </div>
+                            </div>
+                          
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 product-men my-lg-4">
+                    <div class="product-shoe-info shoe text-center">
+                        <div class="men-thumb-item">
+                            <img src="{% static 'images/s5.png' %}">
+                            <!--<span class="product-new-top">Mas vendido</span>!-->
+                        </div>
+                        <div class="item-info-product">
+                            <h4>
+                                <a href="store">Zapatos Escolares </a>
+                            </h4>
+
+                            <div class="product_price">
+                                <div class="grid-price">
+                                    <span class="money">$15.00</span>
+                                </div>
+                            </div>
+                          
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 product-men my-lg-4">
+                    <div class="product-shoe-info shoe text-center">
+                        <div class="men-thumb-item">
+                            <img src="{% static 'images/s10.png' %}">
+                           <!--<span class="product-new-top">Mas vendido</span>!-->
+                        </div>
+                        <div class="item-info-product">
+                            <h4>
+                                <a href="store">Zapatos Escolares</a>
+                            </h4>
+
+                            <div class="product_price">
+                                <div class="grid-price">
+                                    <span class="money">$15.00</span>
+                                </div>
+                            </div>
+                           
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </section>
+    <!-- //ab -->
+    <!--/testimonials-->
+    <section class="testimonials py-5">
+        <div class="container">
+            <div class="test-info text-center">
+                <h3 class="my-md-2 my-3">Albert Einstein</h3>
+
+                <ul class="list-unstyled w3layouts-icons clients">
+                    
+                <p><span class="fa fa-quote-left"></span> La preocupación por el hombre y su seguridad siempre debe ser el interés principal de todos los esfuerzos. <span class="fa fa-quote-right"></span></p>
+
+            </div>
+        </div>
+    </section>
+    <!--//testimonials-->
+    <!--/ab -->
+    <section class="about py-5">
+        <div class="container pb-lg-3">
+          <h3 class="tittle text-center">Catalogos</h3>
+          <div class="row">
+                <div class="col-md-6 latest-left">
+                    <div class="product-shoe-info shoe text-center">
+                        <img src="{% static 'images/img1.png' %}" class="img-fluid" alt="">
+                        <div class="shop-now"><a href="{% url 'store' %}"  class="btn">Catalogo</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 latest-right">
+                    <div class="row latest-grids">
+                        <div class="latest-grid1 product-men col-12">
+                            <div class="product-shoe-info shoe text-center">
+                                <div class="men-thumb-item">
+                                    <img src="{% static 'images/img2.png' %}" class="img-fluid" alt="">
+                                    <h4> <div class="shop-now"><a href="{% url 'store' %}" class="btn"><font color="#F8F8F8">Catalogo</font></a></div> </h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="latest-grid2 product-men col-12 mt-lg-4">
+                            <div class="product-shoe-info shoe text-center">
+                                <div class="men-thumb-item">
+                                    <img src="{% static 'images/img3.png' %}" class="img-fluid" alt="">
+                                    <h4> <div class="shop-now"><a href="{% url 'store' %}" class="btn"><font color="#F8F8F8">Catalogo</font></a></div> </h4>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- //ab -->
+    <!-- brands -->
+    <div class="grid-img-right mt-4 text-center">
+        <h2 class="mb-4"><strong><font color="#F8F8F8">Siguenos en instagram!</font></strong><br>
+        </h2>
+        <a class="btn btn-dark btn-xl" href="https://msng.link/o/?sepriovital=ig"><font color="#F8F8F8">Contactanos con un mensaje directo!</font></a>
+    </div>
+    <!-- brands -->
+    <!-- footer -->
+    <footer>
+        <div class="container">
+            <div class="row footer-top">
+                <div class="col-lg-4 footer-grid_section_w3layouts">
+                  <h2 class="logo-2 mb-lg-4 mb-3"><a href="{% url 'index' %}">SeprioVital</a></h2>
+                  <p>Seguridad Prioridad Vital.</p>
+                    <h4 class="sub-con-fo ad-info my-4">Siguenos en nuestras Redes Sociales</h4>
+                    <ul class="w3layouts_social_list list-unstyled">
+                        <li>
+                            <a href="#" class="w3pvt_facebook">
+                                <span class="fa fa-facebook-f"></span>
+                            </a>
+                        </li>
+                        <li class="mx-2">
+                            <a href="#" class="w3pvt_twitter">
+                                <span class="fa fa-twitter"></span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="w3pvt_dribble">
+                                <span class="fa fa-instagram"></span>
+                            </a>
+                        </li>
+                        <li class="ml-2">
+                            <a href="#" class="w3pvt_google">
+                                <span class="fa fa-google-plus"></span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-lg-8 footer-right">
+                  <div class="Correo">
+                    <h3 class="footer-title text-uppercase text-wh mb-lg-4 mb-3">Contactanos</h3>
+                      <a class="d-block" href="mailto:sepriovital@hotmail.com">Enlace de correo.</a>
+				    </div>
+                    <div class="row mt-lg-4 bottom-w3layouts-sec-nav mx-0">
+                        <div class="col-md-4 footer-grid_section_w3layouts">
+                            <h3 class="footer-title text-uppercase text-wh mb-lg-4 mb-3">Vistas</h3>
+                            <ul class="list-unstyled w3layouts-icons">
+                                <li>
+                                    <a href="{% url 'index' %}">Principal</a>
+                                </li>
+                                <li class="mt-3">
+                                    <a href="{% url 'about' %}">Conocenos</a>
+                                </li>
+                                <li class="mt-3">
+                                    <a href="{% url 'store' %}">Catalogo</a>
+                                </li>
+                                <li class="mt-3">
+                                    <a href="{% url 'store' %}">Servicios</a>
+                                </li>
+                                <li class="mt-3">
+                                    <a href="{% url 'contact' %}">Contactanos</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-md-4 footer-grid_section_w3layouts">
+                            <!-- social icons -->
+                            <div class="agileinfo_social_icons">
+                                <h3 class="footer-title text-uppercase text-wh mb-lg-4 mb-3">Atencion al cliente</h3>
+                                <ul class="list-unstyled w3layouts-icons">
+
+                                    <li>
+                                        <a href="{% url 'about' %}">Conocenos</a>
+                                    </li>
+                                    <li class="mt-3">
+                                        <a href="{% url 'about' %}">Entregas</a>
+                                    </li>
+                                    <li class="mt-3">
+                                        <a href="{% url 'about' %}">Garantias</a>
+                                    </li>
+                                   <!-- <li class="mt-3">
+                                        <a href="#">Terms & Condition</a>
+                                    </li>
+                                    <li class="mt-3">
+                                        <a href="#">Privacy Plolicy</a>
+                                    </li>-->
+                                </ul>
+                            </div>
+                            <!-- social icons -->
+                        </div>
+                        <div class="col-md-4 footer-grid_section_w3layouts my-md-0 my-5">
+                            <h3 class="footer-title text-uppercase text-wh mb-lg-4 mb-3">Contactanos</h3>
+                            <div class="contact-info">
+                                <div class="footer-address-inf">
+                                    <h4 class="ad-info mb-2">Telefonos</h4>
+                                    <p>0412-5580408</p>
+                                </div>
+                                <div class="footer-address-inf my-4">
+                                    <h4 class="ad-info mb-2">Email </h4>
+                                    <p>
+										<a href="mailto:info">sepriovital@hotmail.com</a></p>
+                                </div>
+                                <div class="footer-address-inf">
+                                    <h4 class="ad-info mb-2">Locacion</h4>
+                                    <p>Estado Miranda, San Antonio de los ALtos</p>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <div class="cpy-right text-left row">
+                        <p class="col-md-10">© 2020 Sepriovital. Diseño 
+                            <a href="http://Edgargarcia.ca"> EdgarGarcia.</a>
+                        </p>
+                        <!-- move top icon -->
+                        <a href="#home" class="move-top text-right col-md-2"><span class="fa fa-long-arrow-up" aria-hidden="true"></span></a>
+                        <!-- //move top icon -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- //footer -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="{% static 'js/cart.js' %}"></script>
+</body>
+
+</html>
