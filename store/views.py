@@ -6,6 +6,9 @@ from .models import *
 from .utils import cookieCart, cartData, guestOrder
 
 
+
+
+
 def index(request):
 
     data = cartData(request)
@@ -17,12 +20,62 @@ def index(request):
 
 def contact(request):
     
+    if request.method == 'POST':
+        message = request.POST['message']
+        email = request.POST['email']
+        telefono = request.POST['telefono']
+        name = request.POST['name']
+        total = self.product.price * self.quantity
+        contexto = (name +  telefono + email + message + total) 
+        data = cartData(request)
+        cartItems = data['cartItems']
+        order = data['order']
+        items = data['items']
+        
+        
+            
+        send_mail('Solicitud de Informacion',
+         contexto,
+         settings.EMAIL_HOST_USER,
+         [email],
+         fail_silently=False)
+    return render(request, 'store/contact.html')
+    
     data = cartData(request)
     cartItems = data['cartItems']
 
     products = Product.objects.all()
     context = {'products': products, 'cartItems': cartItems}
     return render(request, 'store/contact.html', context)
+
+
+
+def checkout(request):
+    if request.method == 'POST':
+        address = request.POST['adress']
+        city = request.POST['city']
+        state = request.POST['state']
+        name = request.POST['name']
+        country = request.POST['country']
+        zipcode = request.POST['zipcode']
+        
+        contexto1 = (address + city + state + zipcode + country + items + order + cartItems)
+        
+        send_mail('Solicitud de Informacion',
+         contexto1,
+         settings.EMAIL_HOST_USER,
+         [edgar.jgg93@gmail.com],
+         fail_silently=False)
+    data = cartData(request)
+
+    cartItems = data['cartItems']
+    order = data['order']
+    items = data['items']
+
+    context = {'items': items, 'order': order, 'cartItems': cartItems}
+    return render(request, 'store/checkout.html', context)
+
+
 
 def about(request):
     
@@ -62,17 +115,6 @@ def cart(request):
 
     context = {'items': items, 'order': order, 'cartItems': cartItems}
     return render(request, 'store/cart.html', context)
-
-
-def checkout(request):
-    data = cartData(request)
-
-    cartItems = data['cartItems']
-    order = data['order']
-    items = data['items']
-
-    context = {'items': items, 'order': order, 'cartItems': cartItems}
-    return render(request, 'store/checkout.html', context)
 
 
 def updateItem(request):

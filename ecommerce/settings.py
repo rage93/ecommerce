@@ -25,7 +25,7 @@ SECRET_KEY = 'u4(d&@es@_mwv&c4(kg#uyno&dpjc#gfm4_%=9n66b9&uag4(v'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['201.210.170.248' , 'sepriovital.com']
 
 
 # Application definition
@@ -128,3 +128,12 @@ STATICFILES_DIRS = [
 MEDIA_URL = '/images/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images')
+
+
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'pruebavital2020@gmail.com'
+EMAIL_HOST_PASSWORD = '20131051'
