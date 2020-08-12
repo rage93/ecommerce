@@ -25,7 +25,7 @@ SECRET_KEY = 'u4(d&@es@_mwv&c4(kg#uyno&dpjc#gfm4_%=9n66b9&uag4(v'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['201.210.170.248' , 'sepriovital.com']
+ALLOWED_HOSTS = []
 
 
 # Application definition

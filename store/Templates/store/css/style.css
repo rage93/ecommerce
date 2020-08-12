@@ -420,7 +420,7 @@ li > a:only-child:after {
     color: #ccc;
 }
 
-.<strong>banner</strong>-form :-moz-placeholder {
+.banner-form :-moz-placeholder {
     /* Firefox 18- */
     color: #ccc;
 }

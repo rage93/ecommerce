@@ -25,22 +25,17 @@ def contact(request):
         email = request.POST['email']
         telefono = request.POST['telefono']
         name = request.POST['name']
-        total = self.product.price * self.quantity
-        contexto = (name +  telefono + email + message + total) 
-        data = cartData(request)
-        cartItems = data['cartItems']
-        order = data['order']
-        items = data['items']
         
         
+        contexto = (name +  telefono + email + message) 
+                  
             
         send_mail('Solicitud de Informacion',
          contexto,
          settings.EMAIL_HOST_USER,
          [email],
          fail_silently=False)
-    return render(request, 'store/contact.html')
-    
+       
     data = cartData(request)
     cartItems = data['cartItems']
 
@@ -52,22 +47,24 @@ def contact(request):
 
 def checkout(request):
     if request.method == 'POST':
-        address = request.POST['adress']
+        breakpoint()
+        adress = request.POST['adress']
         city = request.POST['city']
         state = request.POST['state']
         name = request.POST['name']
         country = request.POST['country']
         zipcode = request.POST['zipcode']
+        email = request.POST['email']
         
-        contexto1 = (address + city + state + zipcode + country + items + order + cartItems)
-        
-        send_mail('Solicitud de Informacion',
+        contexto1 = (address + city + state + name + zipcode + country)
+        breakpoint()
+        send_mail('Solicitud de presupuesto',
          contexto1,
          settings.EMAIL_HOST_USER,
-         [edgar.jgg93@gmail.com],
+         [email],
          fail_silently=False)
+        
     data = cartData(request)
-
     cartItems = data['cartItems']
     order = data['order']
     items = data['items']
