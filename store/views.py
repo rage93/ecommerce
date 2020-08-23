@@ -4,10 +4,46 @@ import json
 import datetime
 from .models import *
 from .utils import cookieCart, cartData, guestOrder
+from .prueba import cookieCart1, cartData1, guestOrder1
 
 
 
 
+def checkout(request):
+     
+    
+    prueba= cartData1(request)
+    
+    x = prueba['items']    
+    
+    print('\n'.join(map(str, x))) 
+    b = str(x)
+    print(type(b))
+    
+    
+    if request.method == 'POST':
+             
+        email = request.POST['email']
+        telefono = request.POST['ciudad']
+        ciudad = request.POST['telefono']
+        name = request.POST['name']
+        contexto = (name, '      ' +  telefono, '       '  +  email, '             ' + b )
+        c = str(contexto)
+        
+        send_mail('Solicitud de presupuesto',
+         c,
+         settings.EMAIL_HOST_USER,
+         [email],
+         fail_silently=False)
+        
+    
+    data = cartData(request)
+    cartItems = data['cartItems']
+    order = data['order']
+    items = data['items']
+    
+    context = {'items': items, 'order': order, 'cartItems': cartItems}
+    return render(request, "{% url 'checkout' %}", context)
 
 def index(request):
 
@@ -18,59 +54,36 @@ def index(request):
     context = {'products': products, 'cartItems': cartItems}
     return render(request, 'store/index.html', context)
 
-def contact(request):
+def contact(request):   
+    data = cartData(request)
+    cartItems = data['cartItems']
+    order = data['order']
+    items = data['items']
     
     if request.method == 'POST':
         message = request.POST['message']
         email = request.POST['email']
         telefono = request.POST['telefono']
         name = request.POST['name']
+        contexto = (name, '    ' +  telefono, '     '  +  email, '           ' +  message)   
+        b = " ".join(map(str, contexto))
+        c = name, ' Solicitud de Informacion'
         
-        
-        contexto = (name +  telefono + email + message) 
-                  
-            
-        send_mail('Solicitud de Informacion',
-         contexto,
+        send_mail(c,
+         b,
          settings.EMAIL_HOST_USER,
          [email],
          fail_silently=False)
        
     data = cartData(request)
     cartItems = data['cartItems']
-
+    
     products = Product.objects.all()
-    context = {'products': products, 'cartItems': cartItems}
+    context = {'products': products, 'cartItems': cartItems}   
     return render(request, 'store/contact.html', context)
 
 
 
-def checkout(request):
-    if request.method == 'POST':
-        breakpoint()
-        adress = request.POST['adress']
-        city = request.POST['city']
-        state = request.POST['state']
-        name = request.POST['name']
-        country = request.POST['country']
-        zipcode = request.POST['zipcode']
-        email = request.POST['email']
-        
-        contexto1 = (address + city + state + name + zipcode + country)
-        breakpoint()
-        send_mail('Solicitud de presupuesto',
-         contexto1,
-         settings.EMAIL_HOST_USER,
-         [email],
-         fail_silently=False)
-        
-    data = cartData(request)
-    cartItems = data['cartItems']
-    order = data['order']
-    items = data['items']
-
-    context = {'items': items, 'order': order, 'cartItems': cartItems}
-    return render(request, 'store/checkout.html', context)
 
 
 

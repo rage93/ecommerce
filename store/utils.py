@@ -9,7 +9,8 @@ def cookieCart(request):
 	except:
 		cart = {}
 		print('CART:', cart)
-
+  
+	
 	items = []
 	order = {'get_cart_total':0, 'get_cart_items':0, 'shipping':False}
 	cartItems = order['get_cart_items']
@@ -37,7 +38,11 @@ def cookieCart(request):
 				'digital':product.digital,
 				'get_total':total,
 				}
+			
 			items.append(item)
+   
+			
+
 
 			if product.digital == False:
 				order['shipping'] = True
@@ -57,6 +62,7 @@ def cartData(request):
 		cartItems = cookieData['cartItems']
 		order = cookieData['order']
 		items = cookieData['items']
+		
 
 	return {'cartItems':cartItems ,'order':order, 'items':items}
 

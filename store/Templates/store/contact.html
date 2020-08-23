@@ -125,7 +125,7 @@
                 <!-- nav -->
                 <nav class="py-4">
                     <div id="logo">
-                        <h1> <a href="{% load static %}
+                       
     <link rel="stylesheet" type="text/css" href="{% static 'css/font-awesome.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
@@ -193,7 +193,8 @@
 
 
 
-<script type="text/javascript" src="{% static 'js/cart.js' %}"></script>Sepriovital</a></h1>
+<script type="text/javascript" src="{% static 'js/cart.js' %}"></script>
+                    <h1> <a href= "{% url 'index' %}"> SeprioVital </a></h1>
                     </div>
 
                     <label for="drop" class="toggle">Menu</label>
@@ -235,10 +236,15 @@
             <h3 class="tittle text-center"><span class="sub-tittle">Encuentranos</span> Contactanos</h3>
             <div class="row contact-main-info mt-5">
                 <div class="col-md-6 contact-right-content">
+
                     <form action="#" method="POST">
-                        <input type="text" name="name" placeholder="Nombre" required="">
+
+                        <input type="text" class="form-control" name="name" placeholder="Nombre" required="">
+
                         <input type="email" class="email" name="email" placeholder="email" required="">
+
                         <input type="text" name="telefono" placeholder="Telefono" required="">
+
                         <textarea name="message" placeholder="Mensaje" required=""></textarea>
 
                         
